@@ -136,39 +136,39 @@ button {
 }
 #analog:checked ~ div div:nth-of-type(10)::before { 
 	content: '1';
-	transform: translate(-.15em, 5vmin) rotate(-36deg);
+	transform: translate(-.25em, 5vmin) rotate(-36deg);
 }
 #analog:checked ~ div div:nth-of-type(20)::before { 
 	content: '2';
-	transform: translate(-.15em, 5vmin) rotate(calc(2 * -36deg));
+	transform: translate(-.25em, 5vmin) rotate(calc(2 * -36deg));
 }
 #analog:checked ~ div div:nth-of-type(30)::before { 
 	content: '3';
-	transform: translate(-.15em, 5vmin) rotate(calc(3 * -36deg));
+	transform: translate(-.25em, 5vmin) rotate(calc(3 * -36deg));
 }
 #analog:checked ~ div div:nth-of-type(40)::before { 
 	content: '4';
-	transform: translate(-.15em, 5vmin) rotate(calc(4 * -36deg));
+	transform: translate(-.25em, 5vmin) rotate(calc(4 * -36deg));
 }
 #analog:checked ~ div div:nth-of-type(50)::before { 
 	content: '5';
-	transform: translate(-.15em, 5vmin) rotate(calc(5 * -36deg));
+	transform: translate(-.25em, 5vmin) rotate(calc(5 * -36deg));
 }
 #analog:checked ~ div div:nth-of-type(60)::before { 
 	content: '6';
-	transform: translate(-.15em, 5vmin) rotate(calc(6 * -36deg));
+	transform: translate(-.25em, 5vmin) rotate(calc(6 * -36deg));
 }
 #analog:checked ~ div div:nth-of-type(70)::before { 
 	content: '7';
-	transform: translate(-.15em, 5vmin) rotate(calc(7 * -36deg));
+	transform: translate(-.25em, 5vmin) rotate(calc(7 * -36deg));
 }
 #analog:checked ~ div div:nth-of-type(80)::before { 
 	content: '8';
-	transform: translate(-.15em, 5vmin) rotate(calc(8 * -36deg));
+	transform: translate(-.25em, 5vmin) rotate(calc(8 * -36deg));
 }
 #analog:checked ~ div div:nth-of-type(90)::before { 
 	content: '9';
-	transform: translate(-.15em, 5vmin) rotate(calc(9 * -36deg));
+	transform: translate(-.25em, 5vmin) rotate(calc(9 * -36deg));
 }
 #analog:checked ~ div div:nth-of-type(100)::before { 
 	content: '10';
