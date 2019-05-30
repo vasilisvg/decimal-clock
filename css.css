@@ -24,7 +24,6 @@ div {
 	display: none;
 }
 time {
-	width: 4em;
 	font-size: 20vmin;
 }
 #analog,
@@ -173,7 +172,7 @@ button {
 }
 #analog:checked ~ div div:nth-of-type(100)::before { 
 	content: '10';
-	transform: translate(-.3em, 5vmin);
+	transform: translate(-.5em, 5vmin);
 }
 
 
