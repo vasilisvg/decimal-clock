@@ -69,6 +69,7 @@ function calc(num) {
 
 function createClock() {
 	var clockDiv = document.createElement('div');
+	clockDiv.setAttribute('aria-hidden','true')
 	var i = 1;
 	var minuteDiv = [];
 	while (i < 101) {
