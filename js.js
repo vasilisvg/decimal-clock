@@ -55,12 +55,13 @@ function updateTime(i){
 		sMinutes.innerHTML = decMinutes;
 		sSeconds.setAttribute('style',"transform:rotate(."+decSeconds+"turn)");
 		sSeconds.innerHTML = decSeconds;
+		// Every minute or so, tell the time to screen readers
 		if( decSeconds%100 ==  announceTime ) {
 			announceTime = announceTime - (Math.floor(Math.random() * (10 - 1 + 1)) + 1);
 			if (announceTime < 0) {
 				announceTime = 100 + announceTime;
 			}
-			console.log(announceTime);
+			// Tell it politely!
 			tellTime('polite');
 		}
 		//tellTime();
@@ -73,6 +74,7 @@ function updateTime(i){
 }
 updateTime(1);
 
+// Tell the time to screenreaders
 function tellTime(w){
 	var curH = document.querySelector('time span').textContent;
 	var curM = document.querySelector('time span:nth-of-type(2)').textContent;
@@ -103,6 +105,7 @@ function createClock() {
 }
 createClock()
 
+// When the button is clicked, tell the time
 document.querySelector('button').onclick = function(e){
 	tellTime('assertive');
 }
