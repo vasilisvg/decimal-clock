@@ -1,0 +1,221 @@
+body {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr auto;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+	font-family: 'Nara Sans Light 4', sans-serif;
+}
+body * {
+	grid-column-start: 1;
+	grid-row-start: 2;
+	margin: 0;
+}
+body details {
+	grid-row-start: 1;
+	max-width: 30em;
+	margin: 2vmin 4vmin 0;
+}
+time, div {
+	margin: auto;
+}
+div {
+	display: none;
+}
+time {
+	width: 4em;
+	font-size: 20vmin;
+}
+#analog {
+	opacity: 0;
+}
+
+#analog ~ label {
+	margin-left: 4vmin;
+	grid-row-start: 3;
+}
+#analog:checked ~ label:first-of-type {
+	display: none;
+}
+#analog ~ label:last-of-type {
+	display: none;
+}
+#analog:checked ~ label:last-of-type {
+	display: block;
+}
+
+#analog ~ time span::after {
+	content: ':';
+}
+#analog ~ time span:last-of-type:after {
+	content: '';
+}
+
+#analog:checked ~ time,
+#analog:checked ~ div {
+	position: relative;
+	width: 90vmin;
+	height: 90vmin;
+	border: 1vmin solid black;
+	border-radius: 50%
+}
+#analog:checked ~ div {
+	display: block;
+	z-index: -1;
+}
+#analog:checked ~ time::before {
+	content: '';
+	position: absolute;
+	width: 6vmin;
+	height: 6vmin;
+	background: red;
+	left: calc(50% - 3vmin);
+	top: calc(50% - 3vmin);
+	z-index: 2;
+	border-radius: 50%;
+}
+#analog:checked ~ time span {
+	position: absolute;
+	width: 1vmin;
+	height: 44vmin;
+	bottom: 50%;
+	left: calc(50% - .5vmin);
+	background: black;
+	overflow: hidden;
+	transform-origin: 50% 100%
+}
+#analog:checked ~ time span:first-of-type {
+	height: calc(44vmin * .7);
+	left: calc(50% - 1.5vmin);
+	width: 3vmin;
+}
+#analog:checked ~ time span:nth-of-type(2) {
+	left: calc(50% - 1vmin);
+	width: 2vmin;
+}
+#analog:checked ~ time span:nth-of-type(3) {
+	color: red;
+	background: red;
+	transition: .1s cubic-bezier(.5,-0.15,.75,2);
+}
+#analog:checked ~ time span[style='transform:rotate(.00turn)']:nth-of-type(3) {
+	transition: 0s;
+}
+
+/* #analog:checked ~ div::before {
+	content: '';
+	position: absolute;
+	width: 80vmin;
+	height: 80vmin;
+	border-radius: 50%;
+	left: 5vmin;
+	top: 5vmin;
+	background: white;
+	z-index: 1;
+} */
+#analog:checked ~ div div {
+	display: block;
+	width: 1vmin;
+	height: 1vmin;
+	left: calc(50% - .5vmin);
+	background: black;
+	position: absolute;
+	transform-origin: .5vmin 45vmin;
+}
+#analog:checked ~ div div:nth-of-type(10n) {
+	display: block;
+	height: 2vmin;
+}
+#analog:checked ~ div div::before { 
+	font-size: 8vmin;
+	position: absolute;
+	text-align: center
+}
+#analog:checked ~ div div:nth-of-type(10)::before { 
+	content: '1';
+	transform: translate(-.15em, 5vmin) rotate(-36deg);
+}
+#analog:checked ~ div div:nth-of-type(20)::before { 
+	content: '2';
+	transform: translate(-.15em, 5vmin) rotate(calc(2 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(30)::before { 
+	content: '3';
+	transform: translate(-.15em, 5vmin) rotate(calc(3 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(40)::before { 
+	content: '4';
+	transform: translate(-.15em, 5vmin) rotate(calc(4 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(50)::before { 
+	content: '5';
+	transform: translate(-.15em, 5vmin) rotate(calc(5 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(60)::before { 
+	content: '6';
+	transform: translate(-.15em, 5vmin) rotate(calc(6 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(70)::before { 
+	content: '7';
+	transform: translate(-.15em, 5vmin) rotate(calc(7 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(80)::before { 
+	content: '8';
+	transform: translate(-.15em, 5vmin) rotate(calc(8 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(90)::before { 
+	content: '9';
+	transform: translate(-.15em, 5vmin) rotate(calc(9 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(100)::before { 
+	content: '10';
+	transform: translate(-.3em, 5vmin);
+}
+
+
+#analog:checked ~ div div::after { 
+	font-size: 3vmin;
+	position: absolute;
+	text-align: center
+}
+#analog:checked ~ div div:nth-of-type(10)::after { 
+	content: '10';
+	transform: translate(-.4em, 2.5vmin) rotate(-36deg);
+}
+#analog:checked ~ div div:nth-of-type(20)::after { 
+	content: '20';
+	transform: translate(-.4em, 2.5vmin) rotate(calc(2 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(30)::after { 
+	content: '30';
+	transform: translate(-.4em, 2.5vmin) rotate(calc(3 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(40)::after { 
+	content: '40';
+	transform: translate(-.4em, 2.5vmin) rotate(calc(4 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(50)::after { 
+	content: '50';
+	transform: translate(-.4em, 2.5vmin) rotate(calc(5 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(60)::after { 
+	content: '60';
+	transform: translate(-.4em, 2.5vmin) rotate(calc(6 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(70)::after { 
+	content: '70';
+	transform: translate(-.4em, 2.5vmin) rotate(calc(7 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(80)::after { 
+	content: '80';
+	transform: translate(-.4em, 2.5vmin) rotate(calc(8 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(90)::after { 
+	content: '90';
+	transform: translate(-.4em, 2.5vmin) rotate(calc(9 * -36deg));
+}
+#analog:checked ~ div div:nth-of-type(100)::after { 
+	content: '100';
+	transform: translate(-.6em, 2.5vmin);
+}
