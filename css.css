@@ -27,8 +27,11 @@ time {
 	width: 4em;
 	font-size: 20vmin;
 }
-#analog {
+#analog,
+button {
 	opacity: 0;
+	position: absolute;
+	margin-left: -99999em;
 }
 
 #analog ~ label {
@@ -218,4 +221,9 @@ time {
 #analog:checked ~ div div:nth-of-type(100)::after { 
 	content: '100';
 	transform: translate(-.6em, 2.5vmin);
+}
+
+[aria-live] {
+	position: absolute;
+	margin-left: -999999em;
 }

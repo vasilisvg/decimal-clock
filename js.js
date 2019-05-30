@@ -1,3 +1,5 @@
+//
+var announceTime = '';
 // Must stuff happens here
 function updateTime(i){
 	var heading = document.querySelector('time');
@@ -19,6 +21,13 @@ function updateTime(i){
 	var decMinutes = decTime.replace(regexp,"$1");
 	// Around midnight the second number is the seconds
 	var decSeconds = decTime.replace(regexp,"$2");
+	//console.log(decSeconds);
+	if (!announceTime) {
+		announceTime = (decSeconds * 1) + 20;
+		if (announceTime > 99) {
+			announceTime = announceTime - 100;
+		}
+	}
 	// These rotate variables are to set the styling of each leg of each clock
 	var decMinRotate = decMinutes.toString(decMinutes) + (decSeconds);
 	var decHourRotate = 0 + (decMinRotate);
@@ -46,6 +55,15 @@ function updateTime(i){
 		sMinutes.innerHTML = decMinutes;
 		sSeconds.setAttribute('style',"transform:rotate(."+decSeconds+"turn)");
 		sSeconds.innerHTML = decSeconds;
+		if( decSeconds%100 ==  announceTime ) {
+			announceTime = announceTime - (Math.floor(Math.random() * (10 - 1 + 1)) + 1);
+			if (announceTime < 0) {
+				announceTime = 100 + announceTime;
+			}
+			console.log(announceTime);
+			tellTime('polite');
+		}
+		//tellTime();
 	}
 	// One decimal second is 0.864
 	// Check the time every .864/6 = 0.144 seconds.
@@ -54,6 +72,14 @@ function updateTime(i){
 	},144);
 }
 updateTime(1);
+
+function tellTime(w){
+	var curH = document.querySelector('time span').textContent;
+	var curM = document.querySelector('time span:nth-of-type(2)').textContent;
+	var curS = document.querySelector('time span:nth-of-type(3)').textContent;
+	document.querySelector('[aria-live='+w+']').innerHTML = 'Decimal time is ' + curM + ' minutes and ' + curS + ' seconds past ' + curH;
+}
+//console.log(makeGuess(1));
 
 // I want two decimals, not more.
 function calc(num) {
@@ -76,3 +102,7 @@ function createClock() {
 	document.body.appendChild(clockDiv);
 }
 createClock()
+
+document.querySelector('button').onclick = function(e){
+	tellTime('assertive');
+}

@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css.css">
 </head>
 <body>
-	
+	<button>Announce decimal time, please</button>
 	<input type="checkbox" id="analog" checked>
 	<label for="analog">Switch to an analog clock</label>
 	<label for="analog">Switch to a digital clock</label>
@@ -17,6 +17,8 @@
 			<summary>Decimal clock</summary>
 			<p>If we had ten hours in a day, instead of 24, and if each of these hours had 100 minutes instead of 60, and if every minute had 100 seconds, our clocks would look like this, and the time would be …</p>
 	</details>
+	<p aria-live="polite"></p>
+	<p aria-live="assertive"></p>
 	<script src="js.js"></script>
 </body>
 </html>
