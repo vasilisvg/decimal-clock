@@ -24,6 +24,7 @@ function updateTime(i){
 	var decHourRotate = 0 + (decMinRotate);
 
 	// A different regular expression once it’s 1:00
+	// I think things still go wrong in the first 10 seconds after mindight …
 	if( decTime > 99 ) {
 		regexp = /([1-9])([0-9]{2})\.([0-9]{2})/g;
 		decHours = decTime.replace(regexp,"$1");
