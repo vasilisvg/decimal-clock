@@ -30,8 +30,11 @@ function updateTime(i){
 	}
 	// These rotate variables are to set the styling of each leg of each clock
 	var decMinRotate = decMinutes.toString(decMinutes) + (decSeconds);
+	if( decTime < 10 ) {
+		var decMinRotate = 0 + decMinutes.toString(decMinutes) + (decSeconds);
+	}
 	var decHourRotate = 0 + (decMinRotate);
-
+	//console.log(decTime);
 	// A different regular expression once it’s 1:00
 	// I think things still go wrong in the first 10 seconds after mindight …
 	if( decTime > 99 ) {
