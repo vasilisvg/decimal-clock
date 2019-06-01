@@ -8,15 +8,26 @@
 	<link rel="stylesheet" href="css.css?2">
 </head>
 <body>
+	<!-- For screen readers-->
 	<button>Announce decimal time, please</button>
+	<!-- Using the checkbox hack to switch between anaolog and digital-->
 	<input type="checkbox" id="analog" checked>
 	<label for="analog">Switch to an analog clock</label>
 	<label for="analog">Switch to a digital clock</label>
+
+	<!-- I guess even decimal time should be displayed in a `time` element, 
+		even though this probably violates the spec -->
 	<time><span></span><span></span><span></span></time>
+
+	<!-- Put description in a details -->
 	<details>
 			<summary>Decimal clock</summary>
 			<p>If we had ten hours in a day, instead of 24, and if each of these hours had 100 minutes instead of 60, and if every minute had 100 seconds, our clocks would look like this, and the time would be …</p>
 	</details>
+
+	<!-- Two types of announcements are possible for screen readers:
+	1. Polite, every decimal minute the time is pronounced
+	2. If you press the button to announce the time, it’s done in an assertive way -->
 	<p aria-live="polite"></p>
 	<p aria-live="assertive"></p>
 	<script src="js.js?2"></script>

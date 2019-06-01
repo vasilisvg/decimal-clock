@@ -32,7 +32,7 @@ button {
 	position: absolute;
 	margin-left: -99999em;
 }
-
+/* Checkbox hack */
 #analog ~ label {
 	margin-left: 4vmin;
 	grid-row-start: 3;
@@ -54,6 +54,7 @@ button {
 	content: '';
 }
 
+/* The analog clock */
 #analog:checked ~ time,
 #analog:checked ~ div {
 	position: relative;
@@ -77,6 +78,7 @@ button {
 	z-index: 2;
 	border-radius: 50%;
 }
+/* The arms of the clock */
 #analog:checked ~ time span {
 	position: absolute;
 	width: 1vmin;
@@ -101,21 +103,15 @@ button {
 	background: red;
 	transition: .1s cubic-bezier(.5,-0.15,.75,2);
 }
+/* 
+We need this silly hack. Without it the seconds arm would make 
+a 360 backwards turn every time it reaches 00 seconds.
+*/
 #analog:checked ~ time span[style='transform:rotate(.00turn)']:nth-of-type(3) {
 	transition: 0s;
 }
 
-/* #analog:checked ~ div::before {
-	content: '';
-	position: absolute;
-	width: 80vmin;
-	height: 80vmin;
-	border-radius: 50%;
-	left: 5vmin;
-	top: 5vmin;
-	background: white;
-	z-index: 1;
-} */
+/* The minutes on the face of the clock */
 #analog:checked ~ div div {
 	display: block;
 	width: 1vmin;
@@ -129,6 +125,8 @@ button {
 	display: block;
 	height: 2vmin;
 }
+
+/* The hours on the face of the clock */
 #analog:checked ~ div div::before { 
 	font-size: 8vmin;
 	position: absolute;
@@ -175,7 +173,7 @@ button {
 	transform: translate(-.5em, 5vmin);
 }
 
-
+/* The minutes on the face of the clock */
 #analog:checked ~ div div::after { 
 	font-size: 3vmin;
 	position: absolute;

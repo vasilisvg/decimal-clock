@@ -1,4 +1,4 @@
-//
+// Hi!
 var announceTime = '';
 // Must stuff happens here
 function updateTime(i){
@@ -21,7 +21,6 @@ function updateTime(i){
 	var decMinutes = decTime.replace(regexp,"$1");
 	// Around midnight the second number is the seconds
 	var decSeconds = decTime.replace(regexp,"$2");
-	//console.log(decSeconds);
 	if (!announceTime) {
 		announceTime = (decSeconds * 1) + 20;
 		if (announceTime > 99) {
@@ -34,9 +33,7 @@ function updateTime(i){
 		var decMinRotate = 0 + decMinutes.toString(decMinutes) + (decSeconds);
 	}
 	var decHourRotate = 0 + (decMinRotate);
-	//console.log(decTime);
 	// A different regular expression once it’s 1:00
-	// I think things still go wrong in the first 10 seconds after mindight …
 	if( decTime > 99 ) {
 		regexp = /([1-9])([0-9]{2})\.([0-9]{2})/g;
 		decHours = decTime.replace(regexp,"$1");
@@ -84,7 +81,6 @@ function tellTime(w){
 	var curS = document.querySelector('time span:nth-of-type(3)').textContent;
 	document.querySelector('[aria-live='+w+']').innerHTML = 'Decimal time is ' + curM + ' minutes and ' + curS + ' seconds past ' + curH;
 }
-//console.log(makeGuess(1));
 
 // I want two decimals, not more.
 function calc(num) {
